@@ -109,5 +109,7 @@ def fetch_playlists(genre, mood, access_token):
         print(f"Failed to fetch playlists: {response.status_code}, {response.text}")
         return []
 
+
 if __name__ == '__main__':
-    socketio.run(app, debug=True)
+    socketio.run(app, debug=True, port=8000)
+
