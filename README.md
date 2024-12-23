@@ -37,7 +37,7 @@
 
 3. Set up Spotify API credentials:
     - Create a Spotify developer account and obtain your `Client ID` and `Client Secret`.
-    - Add them to `app.py`:
+    - Add them to `config.py`:
       ```python
       SPOTIFY_CLIENT_ID = 'your_client_id'
       SPOTIFY_CLIENT_SECRET = 'your_client_secret'
