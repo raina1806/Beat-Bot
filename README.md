@@ -54,21 +54,25 @@
 
 ## Project Structure
 
-beat-bot/ 
-├── templates/ 
-│ └── chat.html
-│ └── index.html
-├── static/ 
-│ └── style.css 
-│ └── style-desktop.css 
-│ └── style-mobile.css 
-├── app.py 
-├── requirements.txt 
-├── README.md
+```
+Beat-Bot/
+├── templates/
+│   ├── index.html
+│   ├── chat.html
+├── static/
+│   ├── styles.css
+│   ├── styles-desktop.css
+│   ├── styles-mobile.css
+├── app.py
+├── config.py
+├── requirements.txt
+└── README.md
+```
 
 
 ### Chat Interface
 ![Chat Interface1](https://raw.githubusercontent.com/raina1806/Beat-Bot/refs/heads/main/BeatBot1.JPG)
+
 ![Chat Interface2](https://raw.githubusercontent.com/raina1806/Beat-Bot/refs/heads/main/BeatBot2.JPG)
 
 ---
