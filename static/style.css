@@ -1,0 +1,78 @@
+body {
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+
+.chat-container {
+    width: 400px;
+    margin: 50px auto;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #007BFF; /* Change heading color to blue */
+}
+
+#chat {
+    height: 300px;
+    overflow-y: scroll;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    background: #f9f9f9; /* Slightly different background for chat area */
+}
+
+.message {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 15px; /* Rounded corners for messages */
+    max-width: 80%; /* Limit the width of messages */
+    clear: both; /* Ensure messages do not overlap */
+}
+
+.user {
+    background-color: #e0f7fa; /* User's message bubble */
+    color: #000; /* Text color for user messages */
+    float: right; /* Align user messages to the right */
+    text-align: left; /* Align text to the left within the bubble */
+}
+
+.bot {
+    background-color: #ffffff; /* Bot's message background */
+    border: 1px solid #ccc; /* Outline for bot's bubble */
+    color: #000; /* Text color for bot messages */
+    float: left; /* Align bot messages to the left */
+    text-align: left; /* Align text to the left within the bubble */
+}
+
+.input-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px; /* Add space above the input container */
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: none;
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+    margin-left: 10px; /* Add space between the input and the button */
+}
+
+button:hover {
+    background-color: #0056b3;
+}

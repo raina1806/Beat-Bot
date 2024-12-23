@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Song Recommendation Bot</title>
+</head>
+<body>
+    <h1>Song Recommendation Bot</h1>
+    <form action="/recommend" method="post">
+        <input type="text" name="user_input" placeholder="Enter mood/genre..." required>
+        <button type="submit">Get Recommendations</button>
+    </form>
+    <div id="results"></div>
+
+    <script>
+        const form = document.querySelector('form');
+        const resultsDiv = document.getElementById('results');
+
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const formData = new FormData(form);
+            const response = await fetch('/recommend', {
+                method: 'POST',
+                body: formData
+            });
+            const data = await response.json();
+
+            resultsDiv.innerHTML = '';
+            if (data.recommendations) {
+                resultsDiv.innerHTML += '<h2>Spotify Recommendations:</h2><ul>';
+                data.recommendations.forEach(song => {
+                    resultsDiv.innerHTML += `<li>${song}</li>`;
+                });
+                resultsDiv.innerHTML += '</ul>';
+
+                resultsDiv.innerHTML += '<h2>Last.fm Information:</h2><ul>';
+                data.lastfm_info.forEach(info => {
+                    resultsDiv.innerHTML += `
+                        <li>
+                            <strong>${info.name}</strong> by ${info.artist} <br>
+                            Listeners: ${info.listeners} <br>
+                            Playcount: ${info.playcount} <br>
+                            <a href="${info.url}" target="_blank">More Info</a>
+                        </li>`;
+                });
+                resultsDiv.innerHTML += '</ul>';
+            } else {
+                resultsDiv.innerHTML = `<p>Error: ${data.error}</p>`;
+            }
+        });
+    </script>
+</body>
+</html>

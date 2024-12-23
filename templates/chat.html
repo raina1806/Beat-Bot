@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beat Bot</title>
+    <!-- Load desktop styles for screens wider than 768px -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style-desktop.css') }}" media="(min-width: 768px)">
+    <!-- Load mobile styles for screens narrower than 768px -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style-mobile.css') }}" media="(max-width: 767px)">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.0/socket.io.js"></script>
+</head>
+<body>
+
+<div class="chat-container">
+    <h1>Beat Bot</h1>
+    <div id="chat"></div>
+    <div class="input-container">
+        <input type="text" id="message" placeholder="Type your message here..." />
+        <button id="send">Send</button>
+    </div>
+</div>
+
+<script>
+    const socket = io();
+
+    // Function to add message to chat
+    function addMessage(message, className) {
+        const chat = document.getElementById('chat');
+        const messageDiv = document.createElement('div');
+        messageDiv.classList.add('message', className);
+        messageDiv.innerHTML = message; // Use innerHTML to allow HTML rendering
+        chat.appendChild(messageDiv);
+        chat.scrollTop = chat.scrollHeight; // Scroll to the bottom of chat
+    }
+
+    // Send message to server
+    document.getElementById('send').addEventListener('click', function() {
+        const message = document.getElementById('message').value;
+        if (message) {
+            socket.send(message);  // Send user's message to the server
+            document.getElementById('message').value = '';  // Clear input
+        }
+    });
+
+    // Listen for messages from the server
+    socket.on('message', function(msg) {
+        if (msg.startsWith("User:")) {
+            addMessage(msg, 'user');  // User's message in blue
+        } else {
+            addMessage(msg, 'bot');   // Bot's message in white
+        }
+    });
+</script>
+
+</body>
+</html>
