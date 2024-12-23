@@ -68,7 +68,8 @@ beat-bot/
 
 
 ### Chat Interface
-![Chat Interface](https://example.com/chat-interface.png)
+![Chat Interface1](https://raw.githubusercontent.com/raina1806/Beat-Bot/refs/heads/main/BeatBot1.JPG)
+![Chat Interface2](https://raw.githubusercontent.com/raina1806/Beat-Bot/refs/heads/main/BeatBot2.JPG)
 
 ---
 
